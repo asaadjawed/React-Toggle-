@@ -1,25 +1,41 @@
-import logo from './logo.svg';
+
+import React from 'react';
+import Leftside from './Component/leftside';
+import Rightside from './Component/rightside';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+
+  constructor(){
+    super()
+
+    this.state = {
+        
+        paragraph: "Lorem ipsum content",
+    }
+
+
+ this.change_state=()=>{
+
+  this.setState({
+
+   paragraph: this.state.paragraph === "Lorem ipsum content"?"":"Lorem ipsum content"
+
+  })
+}
+}
+  render()
+  {
+    return(
+
+      <div>
+        <button onClick={this.change_state}>Toggle</button>
+        <p>{this.state.paragraph}</p>
+      </div>
+    
+    )
+  }
+
 }
 
 export default App;
